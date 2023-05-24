@@ -45,7 +45,7 @@
                                     <i class="fa fa-ellipsis-v ml-5" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="/dashboard/post/edit/{{ $post->id }}"><i class="fas fa-edit pr-2 text-primary"></i>Edit</a>
-                                        <a class="dropdown-item" href="#"><i class="fas fa-trash-alt pr-2 text-danger"></i>Delete</a>
+                                        <a class="dropdown-item" href="/dashboard/post/delete/{{ $post->id }}" onclick="return confirm('Sure??, Your data will lost')"><i class="fas fa-trash-alt pr-2 text-danger"></i>Delete</a>
                                     </div>
                                 </div>
                             </td>
