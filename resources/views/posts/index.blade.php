@@ -38,8 +38,8 @@
                             <td>{{ $post->title }}</td>
                             <td>{{ $post->slug }}</td>
                             <td>{{ $post->body }}</td>
-                            <td>{{ $post->user->name }}</td>
-                            <td>{{ $post->category->name }}</td>
+                            <td>{{ $post->user->name ?? '' }}</td>
+                            <td>{{ $post->category->name ?? '' }}</td>
                             <td>
                                 <div class="dropdown">
                                     <i class="fa fa-ellipsis-v ml-5" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>

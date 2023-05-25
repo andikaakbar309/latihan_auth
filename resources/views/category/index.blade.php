@@ -19,44 +19,49 @@
                 Create Category
             </button> -->
 
+            <button class="btn btn-primary mb-3 mr-2" onclick="createPDF()">Export</button>
+
             <a href="/dashboard/category/create" class="btn btn-primary mb-3">Add Category</a>
 
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Name</th>
-                            <th>Slug</th>
-                            <th>Posts</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @php
-                        $no=1;
-                        @endphp
-                        @foreach($categories as $category)
-                        <tr>
-                            <td>{{ $no++ }}</td>
-                            <td>{{ $category->name }}</td>
-                            <td>{{ $category->slug }}</td>
-                            <td>{{ $category->posts->count() }}</td>
-                            <td>
-                                <div class="dropdown">
-                                    <i class="fa fa-ellipsis-v" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="/dashboard/category/edit/{{ $category->id }}"><i class="fas fa-edit pr-2 text-primary"></i>Edit</a>
-                                        <a class="dropdown-item" href="/dashboard/category/delete/{{ $category->id }}" onclick="return confirm('Sure??, Your data will lost')">
-                                            <i class="fas fa-trash-alt pr-2 text-danger"></i>Delete
-                                        </a>
+            <div class="" id="box">
+
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Name</th>
+                                <th>Slug</th>
+                                <th>Posts</th>
+                                <th class="hiden">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @php
+                            $no=1;
+                            @endphp
+                            @foreach($categories as $category)
+                            <tr>
+                                <td>{{ $no++ }}</td>
+                                <td>{{ $category->name }}</td>
+                                <td>{{ $category->slug }}</td>
+                                <td>{{ $category->posts->count() }}</td>
+                                <td class="hiden">
+                                    <div class="dropdown">
+                                        <i class="fa fa-ellipsis-v" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="/dashboard/category/edit/{{ $category->id }}"><i class="fas fa-edit pr-2 text-primary"></i>Edit</a>
+                                            <a class="dropdown-item" href="/dashboard/category/delete/{{ $category->id }}" onclick="return confirm('Sure??, Your data will lost')">
+                                                <i class="fas fa-trash-alt pr-2 text-danger"></i>Delete
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
@@ -81,6 +86,8 @@
         </div>
     </div>
 </div>
+
+@include('category.export')
 
 @endsection
 
