@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
@@ -22,6 +23,9 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
+Route::get('/', [BlogController::class, 'welcome'])->name('welcome');
+Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
